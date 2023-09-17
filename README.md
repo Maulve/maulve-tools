@@ -1,5 +1,3 @@
-![logo](logo.png)
-
 # Maulve Tools
 
 **A small library for Godot 4**
