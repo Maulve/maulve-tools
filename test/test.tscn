@@ -1,0 +1,42 @@
+[gd_scene load_steps=3 format=3 uid="uid://bb8pyrvjhopxy"]
+
+[ext_resource type="Script" path="res://test/test.gd" id="1_1r2p3"]
+[ext_resource type="Script" path="res://addons/maulve-tools/utility/Saver.gd" id="1_fecgn"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1r2p3")
+
+[node name="TextEdit" type="TextEdit" parent="."]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 219.0
+offset_right = 596.0
+offset_bottom = 275.0
+
+[node name="Saver" type="Node" parent="TextEdit"]
+script = ExtResource("1_fecgn")
+fields = Array[String](["text"])
+
+[node name="Save" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 275.0
+offset_top = 314.0
+offset_right = 475.0
+offset_bottom = 364.0
+text = "Save"
+
+[node name="Load" type="Button" parent="."]
+custom_minimum_size = Vector2(200, 50)
+layout_mode = 0
+offset_left = 511.0
+offset_top = 315.0
+offset_right = 711.0
+offset_bottom = 365.0
+text = "Load"
