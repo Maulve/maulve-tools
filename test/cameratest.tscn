@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c32a4m5a6ojul"]
 
 [ext_resource type="Script" path="res://test/Camera2D.gd" id="1_4uuqf"]
-[ext_resource type="Script" path="res://addons/maulve-tools/camera/ScreenShake.gd" id="2_q7wsl"]
+[ext_resource type="Script" path="res://addons/maulve-tools/camera/CameraShake2D.gd" id="2_isf6c"]
 
 [node name="Node" type="Node"]
 
@@ -15,5 +15,6 @@ offset_bottom = 303.0
 anchor_mode = 0
 script = ExtResource("1_4uuqf")
 
-[node name="CameraShake" type="Node" parent="Camera2D"]
-script = ExtResource("2_q7wsl")
+[node name="CameraShake" type="Node" parent="Camera2D" node_paths=PackedStringArray("camera")]
+script = ExtResource("2_isf6c")
+camera = NodePath("..")

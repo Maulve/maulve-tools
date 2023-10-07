@@ -1,8 +1,6 @@
 ## A node that manages Engine.time_scale
 class_name TimeScale extends Node
 
-# PUT IN AUTOLOAD // Maulve
-
 ## A timescale variable synced with Engine.time_scale
 @export var timescale: float = 1.0: set = _set_timescale
 

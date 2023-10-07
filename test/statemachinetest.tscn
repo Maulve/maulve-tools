@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://bkx6y0wqxbdsr"]
+
+[ext_resource type="Script" path="res://addons/maulve-tools/utility/StateMachine.gd" id="1_lfmj5"]
+[ext_resource type="Script" path="res://test/new_script.gd" id="2_y78at"]
+
+[node name="Player" type="CharacterBody2D"]
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("1_lfmj5")
+initial_state = NodePath("WalkState")
+
+[node name="WalkState" type="Node" parent="StateMachine"]
+script = ExtResource("2_y78at")
