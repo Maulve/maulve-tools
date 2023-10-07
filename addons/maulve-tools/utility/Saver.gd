@@ -21,10 +21,11 @@ func save() -> Dictionary:
 	for field in fields:
 		if field in parent:
 			saved_items[field] = parent[field]
+		
 	return saved_items
 
 
-func load(saved_data: Dictionary):
-	for key in saved_data:
+func load(save_data: Dictionary):
+	for key in save_data:
 		if key in parent:
-			parent[key] = saved_data[key]
+			parent[key] = save_data[key]

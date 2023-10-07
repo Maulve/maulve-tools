@@ -10,22 +10,19 @@ config_version=5
 
 [application]
 
-config/name="Nodot"
+config/name="Maulve Tools"
 run/main_scene="res://test/test.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
 [autoload]
 
-SaveManager="*res://addons/maulve-tools/autoload/SaveManager.gd"
-GlobalSignal="*res://addons/maulve-tools/autoload/GlobalSignal.gd"
-PlayerManager="*res://addons/nodot/autoload/PlayerManager.gd"
-CollectableManager="*res://addons/maulve-tools/autoload/CollectableManager.gd"
-InputManager="*res://addons/maulve-tools/autoload/InputManager.gd"
 VideoManager="*res://addons/maulve-tools/autoload/VideoManager.gd"
 AudioManager="*res://addons/maulve-tools/autoload/AudioManager.gd"
+SaveManager="*res://addons/maulve-tools/autoload/SaveManager.gd"
+GlobalSignal="*res://addons/maulve-tools/autoload/GlobalSignal.gd"
 GlobalStorage="*res://addons/maulve-tools/autoload/GlobalStorage.gd"
-NetworkManager="*res://addons/nodot/autoload/NetworkManager.gd"
+InputManager="*res://addons/maulve-tools/autoload/InputManager.gd"
 DebugManager="*res://addons/maulve-tools/autoload/DebugManager.gd"
 
 [display]
@@ -35,10 +32,11 @@ window/size/initial_screen=1
 [editor]
 
 movie_writer/movie_file="C:/nodot.avi"
+script_templates_search_path="res://script_templates"
 
 [editor_plugins]
 
-enabled=PackedStringArray()
+enabled=PackedStringArray("res://addons/maulve-tools/plugin.cfg")
 
 [filesystem]
 

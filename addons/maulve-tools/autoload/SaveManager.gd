@@ -29,7 +29,7 @@ func unregister_saver(saver_node: Saver):
 
 ## Saves the data in the current scene
 func save(slot: int = 0) -> void:
-	var file_path = "user://save%s.sav" % slot
+	var file_path = "user://save-%s.dat" % slot
 	var file = FileAccess.open(file_path, FileAccess.WRITE)
 	var save_data: Dictionary = {"_custom_values": custom_values}
 
@@ -38,6 +38,7 @@ func save(slot: int = 0) -> void:
 		save_data[get_special_id(saver)] = saver_data
 
 	file.store_var(save_data)
+	
 	file.close()
 	emit_signal("saved")
 
@@ -48,22 +49,24 @@ func load(slot: int = 0, reload_scene: bool = false) -> void:
 		get_tree().reload_current_scene()
 		await get_tree().process_frame
 
-	var file_path = "user://save%s.sav" % slot
+	var file_path = "user://save-%s.dat" % slot
 	if FileAccess.file_exists(file_path):
 		var file := FileAccess.open(file_path, FileAccess.READ)
 		var save_data = file.get_var(true)
+		
 		custom_values = save_data._custom_values
 
 		for saver_id in save_data:
 			for saver in savers:
 				if get_special_id(saver) == saver_id:
-					saver.load(save_data[saver_id])
+					if save_data[saver_id] != null:
+						saver.load(save_data[saver_id])
 		file.close()
 		emit_signal("loaded")
 
 
 ## Generate a unique ID for the save component
-func get_special_id(input_node: Node):
+func get_special_id(input_node: Node) -> String:
 	var id_raw = "%s_%s" % [input_node.get_path(), input_node.name]
 	return id_raw.sha256_text()
 
@@ -84,6 +87,7 @@ func save_config():
 	var file = FileAccess.open(file_path, FileAccess.WRITE)
 	file.store_var(config.data, true)
 	file.close()
+	
 	
 ## Load the configuration file
 func load_config() -> void:

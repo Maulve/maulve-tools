@@ -1,6 +1,6 @@
 @icon("../icons/storage.svg")
 ## Redis-like class to store key-value pairs
-class_name Storage extends RefCounted
+class_name Storage extends Node
 
 ## Dictionary to store key-value pairs
 @export var data: Dictionary = {}

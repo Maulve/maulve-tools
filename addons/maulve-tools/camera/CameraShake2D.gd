@@ -1,6 +1,7 @@
+@tool
 ## A Node to shake a Camera2D
-class_name CameraShake extends Node
-
+extends Node
+class_name CameraShake2D
 
 ## (optional) select the camera to apply the affect to. Will use the parent if not present.
 @export var camera: Camera2D
@@ -20,18 +21,18 @@ signal ended_shake
 func _ready():
 	set_physics_process(false)
 	
+	if camera == null and get_parent() is Camera2D:
+		camera = get_parent()
+	
+	
+	initial_offset = camera.offset
+	
 	_get_camera()
 
 
 func _get_camera():
-	var parent = get_parent()
-
 	if camera:
 		initial_offset = camera.offset
-	elif parent is Camera2D:
-		initial_offset = parent.offset
-		camera = parent
-		
 
 # just manages shake, not actual shake
 func shake(intensity: float = 1, duration : float = 0.5):
@@ -49,8 +50,7 @@ func shake(intensity: float = 1, duration : float = 0.5):
 	timer.wait_time = duration
 	timer.one_shot = true
 	
-	add_child(timer)
-	
+	#add_child(timer)
 	timer.start()
 	
 	timer.timeout.connect(_end_shake)
