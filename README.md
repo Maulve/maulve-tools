@@ -1,14 +1,14 @@
-![logo](logo.png)
-
-# Maulves Tools
+# Maulve Tools
 
 **A small library for Godot 4**
 
-## What is **Maulves Tools**?
+## What is **Maulve Tools**?
 
-**Maulves Tools** is a small library of Scripts and Nodes. It is supposed to help your create your
-game. **Maulves Tools** is based on Nodot by krazyjakee ![https://github.com/NodotProject/nodot], and a more
+**Maulve Tools** is a small library of Scripts and Nodes. It is supposed to help your create your
+game. **Maulve Tools** is based on [Nodot by krazyjakee](https://github.com/NodotProject/nodot), and is a more
 cutdown version of it.
+
+
 
 ## Setup
 
@@ -30,7 +30,7 @@ https://nodotproject.github.io/maulve-tools
 
 ## Examples
 
-# Add examples here
+Add examples here
 
 ## Asset Credits
 
