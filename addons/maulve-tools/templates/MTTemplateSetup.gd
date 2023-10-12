@@ -3,7 +3,12 @@ class_name MTTemplateSetup
 
 const STATE_PATH: String = "res://addons/maulve-tools/templates/StateTemplate.gd"
 
-static func setup():
+func _enter_tree() -> void:
+	setup()
+	await get_tree().physics_frame
+	queue_free()
+
+func setup():
 	
 	var path = ProjectSettings.get_setting("editor/script_templates_search_path", "res://script_templates/") as String
 	
@@ -17,7 +22,7 @@ static func setup():
 	
 	save_file(path)
 
-static func save_file(path):
+func save_file(path):
 	var _state_file = FileAccess.open(STATE_PATH, FileAccess.READ)
 	var state_content = _state_file.get_as_text()
 	_state_file.close()

@@ -24,7 +24,6 @@ func save() -> Dictionary:
 		
 	return saved_items
 
-
 func load(save_data: Dictionary):
 	for key in save_data:
 		if key in parent:

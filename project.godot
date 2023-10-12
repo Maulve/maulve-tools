@@ -23,7 +23,8 @@ SaveManager="*res://addons/maulve-tools/autoload/SaveManager.gd"
 GlobalSignal="*res://addons/maulve-tools/autoload/GlobalSignal.gd"
 GlobalStorage="*res://addons/maulve-tools/autoload/GlobalStorage.gd"
 InputManager="*res://addons/maulve-tools/autoload/InputManager.gd"
-DebugManager="*res://addons/maulve-tools/autoload/DebugManager.gd"
+TimeScale="*res://addons/maulve-tools/autoload/TimeScale.gd"
+Cursor="*res://addons/maulve-tools/autoload/Cursor.gd"
 
 [display]
 

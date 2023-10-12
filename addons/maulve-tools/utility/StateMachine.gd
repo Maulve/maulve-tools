@@ -9,23 +9,22 @@ signal transitioned(old_state, new_state)
 var states : Dictionary = {}
 
 ## The current State
-var current_state : State
+var current_state: State
 
 ## The initial State
-@export var initial_state : State
+@export var initial_state: State
 
-## Reference to Parent that all States of this StateMachine can use
-@export var parent : Node
+## Reference to a target node that all States of this StateMachine can use
+@export var target: Node
 
 func _ready() -> void:
-	
 	# Adds all children of type State to states Dictionary
 	for child in get_children():
 		if child is State:
 			states[child.name] = child
 			child.state_machine = self
-			if parent != null:
-				child.parent = parent
+			if target != null:
+				child.target = target
 	
 	if initial_state == null:
 		printerr("Maulve Tools: StateMachine initial state not set.")
@@ -42,7 +41,7 @@ func _physics_process(delta: float) -> void:
 		current_state.physics_process(delta)
 
 ## Function used by States to change to a different State
-func change_state(old_state : State, new_state_name : String) -> void:
+func change_state(old_state: State, new_state_name: String) -> void:
 	if old_state == null or states[new_state_name] == null:
 		return
 	
